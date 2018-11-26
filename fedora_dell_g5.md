@@ -10,7 +10,7 @@ https://wiki.debian.org/fr/KernelModuleBlacklisting
 
 sudo dnf update
 
-sudo dnf install keepass vim zsh git  vlc gnome-tweak-tool
+sudo dnf install keepass vim zsh git gnome-tweak-tool pinta
  
 
 ## Oh-My-Zsh
@@ -38,10 +38,39 @@ chsh -s /bin/zsh
 Remove title bar
 https://askubuntu.com/questions/979968/how-to-hide-title-bar-in-firefox-57-quantum
 
+uBlock Origin
+https://addons.mozilla.org/fr/firefox/addon/ublock-origin/
+
+Privacy Badger
+https://addons.mozilla.org/fr/firefox/addon/privacy-badger17/
+
+
 ## Keepass
+
+Tuto
+
+https://hiob.fr/kee/
+
+Install Kee firefox extension 
+
+https://addons.mozilla.org/fr/firefox/addon/keefox/
+
+Download KeePassRPC.plgx
+
+https://github.com/kee-org/keepassrpc/releases/tag/v1.8.0
+
+Copy it in /usr/lib/keepass/
+
+sudo cp KeePassRPC.plgx /usr/lib/keepass/
+
+Relaunch Keepass
+
+Fill code when asked
+
+
 
 ## SSD optimizations
 
-
+## Install Nivia drivers
 
 
