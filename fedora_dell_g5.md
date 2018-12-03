@@ -106,7 +106,7 @@ Fill code when asked
 
 ## Install Nivia drivers
 
-# VS Code
+## VS Code
 
 
 Tutorial: 
@@ -133,3 +133,56 @@ sudo dnf install code
 ```
 
 
+## Syncthing
+
+website: https://syncthing.net/
+```bash
+sudo dnf install syncthing
+```
+### Start Syncthing as systemd user service
+
+tuto: https://docs.syncthing.net/users/autostart.html#linux
+
+Create file /etc/systemd/user/syncthing@.service
+
+```bash
+vim /etc/systemd/user/syncthing@.service
+```
+
+and fill with this:
+
+```bash
+[Unit]
+Description=Syncthing - Open Source Continuous File Synchronization
+Documentation=man:syncthing(1)
+
+[Service]
+ExecStart=/usr/bin/syncthing -no-browser -no-restart -logflags=0
+Restart=on-failure
+SuccessExitStatus=3 4
+RestartForceExitStatus=3 4
+
+[Install]
+WantedBy=default.target
+```
+
+Enable and start service
+
+```bash
+systemctl --user enable syncthing.service
+systemctl --user start syncthing.service
+```
+
+
+
+To check the status of a user service:
+
+```bash
+systemctl --user status syncthing.service
+```
+
+Open browser and go to this page to manage syncthing configuration
+
+```
+http://localhost:8384/
+```
