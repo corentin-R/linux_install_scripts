@@ -106,6 +106,47 @@ Fill code when asked
 
 ## Install Nivia drivers
 
+link: https://fedoramagazine.org/install-nvidia-gpu/
+
+1. First, open up a terminal, and update your package-manager (if you have not done so already), by running:
+
+```bash
+sudo dnf update
+```
+2. Next, reboot with the simple command:
+```bash
+reboot
+```
+3. After reboot, install the Fedora 28 workstation repositories:
+```bash
+sudo dnf install fedora-workstation-repositories
+```
+4. Next, enable the NVIDIA driver repository:
+```bash
+sudo dnf config-manager --set-enabled rpmfusion-nonfree-nvidia-driver
+```
+5. Then, reboot again.
+
+6. After the reboot, verify the addition of the repository via the following command:
+```bash
+sudo dnf repository-packages rpmfusion-nonfree-nvidia-driver info
+```
+If several NVIDIA tools and their respective specs are loaded, then proceed to the next step. If not, you may have encountered an error when adding the new repository and you should give it another shot.
+
+7. Login, connect to the internet, and open the software app. Click Add-ons> Hardware Drivers> NVIDIA Linux Graphics Driver> Install.
+
+If you’re using an older GPU or plan to use multiple GPUs, check the RPMFusion guide for further instructions. Finally, to ensure a successful reboot, set “WaylandEnable=false” in /etc/gdm/custom.conf, and make sure to avoid using secure boot.
+
+### Test driver
+
+Open up a terminal and close all other applications
+
+    sudo dnf install glmark2
+    glmark2
+    Allow the test to run to completion for best results. Check to see if the frame rates match your expectation for your NVIDA card. If you’d like additional verification, consult the web to determine if a glmark2 benchmark has been previously conducted on your NVIDA card model and published to the web. Compare scores to assess your GPUs performance.
+    If your framerates and/or glmark2 score are below expected, consider potential causes. CPU-induced bottlenecking? Other issues?
+
+
 ## VS Code
 
 
