@@ -227,3 +227,11 @@ Open browser and go to this page to manage syncthing configuration
 ```
 http://localhost:8384/
 ```
+
+## Memo
+
+Get installation date
+
+```bash
+ls -lct /etc | tail -1 | awk '{print $6, $7, $8}'
+```
